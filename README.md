@@ -1,12 +1,23 @@
-# React + Vite
+# 💬 Wizzle Chat App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Wizzle is a real-time chat application built with the MERN stack. It allows users to chat one-on-one or in groups with real-time updates, and a clean, responsive interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- ✅ User sign up and login (with JWT authentication), secure password storage with bcrypt
+- 💬 One-on-one direct messaging
+- 👥 Group chat support
+- 🔔 Real-time messaging with Socket.IO
+- 📊 Admin dashboard to view / manage users and groups
+- 📱 Responsive design (mobile & desktop)
+- 🔍 search users
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React, Tailwind CSS, daisy UI, React Router, Zustand, Axios
+- **Backend**: Node.js, Express.js, MongoDB, Mongoose, Socket.IO
+- **Authentication**: JWT (stored in cookies)
