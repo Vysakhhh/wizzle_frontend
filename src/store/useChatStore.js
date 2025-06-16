@@ -157,22 +157,27 @@ export const useChatStore = create((set, get) => ({
 },
 
   getRealTimeGroupMessages: async () => {
-    try {
-      const { selectedGroup } = get();
-      const socket = useAuthStore.getState().socket;
-      if (!selectedGroup || !socket) return;
+  try {
+    const { selectedGroup } = get();
+    const socket = useAuthStore.getState().socket;
+    if (!selectedGroup || !socket) return;
 
-      socket.on("newGroupMessage", (newMessage) => {
-        set((state) => {
-          const exists = state.groupMessages.some((msg) => msg._id === newMessage._id);
-          if (exists) return state;
-          return { groupMessages: [...state.groupMessages, newMessage] };
-        });
+    socket.off("newGroupMessage");
+
+    socket.on("newGroupMessage", (newMessage) => {
+      if (newMessage.groupId !== selectedGroup._id) return;
+
+      set((state) => {
+        const exists = state.groupMessages.some((msg) => msg._id === newMessage._id);
+        if (exists) return state;
+        return { groupMessages: [...state.groupMessages, newMessage] };
       });
-    } catch (err) {
-      console.log(err);
-    }
-  },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+},
+
 
   disconnectRealTimeGroupMessages: () => {
     const socket = useAuthStore.getState().socket;
