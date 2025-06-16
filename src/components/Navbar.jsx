@@ -50,9 +50,11 @@ const handleLogout=()=>{
 
             </button>
 
-          {authUser && authUser.role === "User" && <AddGroup />}
 
             <div className={`flex items-center gap-3 ${isOpen ? 'block' : 'hidden'} sm:flex`}>
+              
+             {authUser && authUser.role === "User" && <AddGroup />}
+
               <Link to="/settings" className="btn btn-sm gap-2 transition-colors" aria-label="Go to settings">
                 <Settings className="size-5" aria-hidden="true" />
                 <span className="hidden sm:inline">Settings</span>
