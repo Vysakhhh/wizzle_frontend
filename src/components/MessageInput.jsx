@@ -36,31 +36,31 @@ function MessageInput({ isGroup = false }) {
     }
   };
 
-const handleSendMessage = async (e) => {
-  e.preventDefault();
-  if (!text.trim() && !imgPreview) return;
+  const handleSendMessage = async (e) => {
+    e.preventDefault();
+    if (!text.trim() && !imgPreview) return;
 
-  try {
-    await (isGroup
-      ? sendGroupMessages(selectedGroup._id, {
+    try {
+      await (isGroup
+        ? sendGroupMessages(selectedGroup._id, {
           text: text.trim(),
           image: imgPreview,
         })
-      : sendMessages({
+        : sendMessages({
           receiverId: selectedUser._id,
           text: text.trim(),
           image: imgPreview,
         }));
 
-    setText('');
-    setImgPreview(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
+      setText('');
+      setImgPreview(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    } catch (err) {
+      console.error('Failed to send message:', err);
     }
-  } catch (err) {
-    console.error('Failed to send message:', err);
-  }
-};
+  };
 
 
   return (
@@ -103,13 +103,13 @@ const handleSendMessage = async (e) => {
 
           <button
             type="button"
-            className={`hidden sm:flex btn btn-circle ${
-              imgPreview ? "text-emerald-500" : "text-zinc-400"
-            }`}
-            onClick={() => fileInputRef.current?.click()}
-          >
+            className={`flex btn btn-circle ${imgPreview ? "text-emerald-500" : "text-zinc-400"
+              } sm:text-lg text-sm`}
+            onClick={() => fileInputRef.current?.click()} >
             <FileImage size={20} />
+            
           </button>
+
         </div>
         <button
           type="submit"
