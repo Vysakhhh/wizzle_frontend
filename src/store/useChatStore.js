@@ -208,6 +208,7 @@ export const useChatStore = create((set, get) => ({
       selectedUser: null,
       selectedGroup: null,
       groups: [],
+      users:[],
       isGroupsLoading: false,
     }),
 
