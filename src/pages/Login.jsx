@@ -117,7 +117,7 @@ function Login() {
   
   <div>
        <footer className="mt-13 text-amber-900 font-medium">
-        <p>&copy; 2023 Wizzle. All rights reserved.</p>
+        <p>&copy; 2025 Wizzle. All rights reserved.</p>
       </footer>
        </div>
 
